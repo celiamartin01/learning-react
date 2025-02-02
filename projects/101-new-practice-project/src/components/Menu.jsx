@@ -1,6 +1,10 @@
+import './Menu.css'
+
 function Menu(){
     return(
-        <h2>Imagine this is a menu lol</h2>
+        <div id="menu">
+            <h2>Imagine this is a menu lol, using h2</h2>
+        </div>
     )
 }
 
