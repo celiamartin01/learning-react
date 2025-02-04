@@ -2,9 +2,11 @@
 import './App.css'
 import { useState } from 'react'
 
-import Example from './components/Example.jsx'
+import ExtensionExample from './components/ExtensionExample.jsx'
 import Menu from './components/Menu.jsx'
 import PlaceHolderExample from './components/PlaceHolderExample.jsx'
+import ConditionalRender from './components/ConditionalRender.jsx'
+import ListRender from './components/ListRender.jsx'
 
 function App() {
 
@@ -26,12 +28,15 @@ function App() {
       <h1 onClick={saySomething}>Hi</h1>      
       <Menu/>
       <h2>Another h2 example</h2>
-      <Example/>
+      <ExtensionExample/>
 
       {/* Use of state example */}
       <div onClick={increaseNumber}>Number : {number}</div>      
 
       <PlaceHolderExample/>  
+      <ConditionalRender/>
+      <ListRender/>
+
     </div>
   )
 }

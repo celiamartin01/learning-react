@@ -2,10 +2,10 @@
 
 import React from 'react'
 
-function Example() {
+function ExtensionExample() {
   return (
-    <div>Example</div>
+    <div>ExtensionExample</div>
   )
 }
 
-export default Example
+export default ExtensionExample
