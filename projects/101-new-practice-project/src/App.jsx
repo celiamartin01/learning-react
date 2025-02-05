@@ -7,6 +7,7 @@ import Menu from './components/Menu.jsx'
 import PlaceHolderExample from './components/PlaceHolderExample.jsx'
 import ConditionalRender from './components/ConditionalRender.jsx'
 import ListRender from './components/ListRender.jsx'
+import Child from './components/Child.jsx'
 
 function App() {
 
@@ -22,6 +23,15 @@ function App() {
     )
   }
 
+  // Object to give to the child component as a prop
+  const person =
+    { 
+      id: 1,
+      name: "Juan",
+      age: 30
+    }
+  
+
   return (
     <div>
       {/* Use of events example */}
@@ -36,6 +46,9 @@ function App() {
       <PlaceHolderExample/>  
       <ConditionalRender/>
       <ListRender/>
+
+      {/* Props example */}
+      <Child msg="Message from father component" person={person}/>
 
     </div>
   )
