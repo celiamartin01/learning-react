@@ -1,6 +1,7 @@
 import React from 'react'
 
 const movies = ["Movie 1", "Movie 2", "Movie 3", "Movie 4"]
+const movies2 = ["Movie 11", "Movie 22", "Movie 33", "Movie 44"]
 
 /* It's mandatory to add a key to each element of the array?? 
    Use ID or some unique property when using objects */
@@ -8,7 +9,7 @@ const HTMLmovies = movies.map((movie, index) => <p key={movie}>{index + 1} - {mo
 
 /* Actually you can just use an <ol> element so you don't need to add the index
    Just change <p> to <li> */
-const HTMLmoviesOL = movies.map(movie => <li key={movie}>{movie}</li>)
+const HTMLmoviesOL = movies2.map(movie2 => <li key={movie2}>{movie2}</li>)
 
 /* Example with an object array */
 const animals = [
