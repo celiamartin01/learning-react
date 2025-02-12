@@ -1,5 +1,4 @@
 import './AnotherChild.css'
-import { useState } from 'react'
 
 function AnotherChild(props) {
 

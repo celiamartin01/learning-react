@@ -15,8 +15,8 @@ function App() {
     <div>
       {/* This is given by the Child1 component */}
       <h1>Welcome, {displayName}</h1>
-      <Child1 handleLogin={login}/>
-      <Child2 />
+      <Child1 handleLogin={login} userName={displayName}/>
+      <Child2 userName={displayName}/>
     </div>
   )
 }
