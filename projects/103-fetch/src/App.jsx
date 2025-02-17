@@ -38,10 +38,7 @@ function App() {
   return (
     <div>
       <h1> Using fetch to call an API</h1>
-
-      <section>
-        {HTMLUsers}
-      </section>
+      <section> {HTMLUsers} </section>
     </div>
   )
 }
