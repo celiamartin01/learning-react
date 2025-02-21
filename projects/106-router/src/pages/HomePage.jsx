@@ -1,9 +1,13 @@
 import React from 'react'
+import HeaderComponent from '../components/HeaderComponent'
 
-// Just a page example to use router
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <>
+        <HeaderComponent/>
+        <div>HomePage</div>
+    </>
+    
   )
 }
 
