@@ -2,6 +2,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import BlogPage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
+import PostDetails from './pages/PostDetails'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         "localhost:5173" so this is our root page, blog will be "localhost:5173/blog" */ }
       <Route path="/" element={<HomePage />} />
       <Route path="/blog" element={<BlogPage />} />
+      <Route path="/blog/:id" element={<PostDetails />} />
     </Routes>
   )
 }
