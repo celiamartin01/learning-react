@@ -30,7 +30,7 @@ function BlogPage() {
   return (
     <>
       <HeaderComponent/>
-      <h2>Blog page</h2>
+      <h3>Blog page</h3>
       <ul>{postCards}</ul>
     </>
     

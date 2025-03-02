@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <>
         <HeaderComponent/>
-        <div>HomePage</div>
+        <h3>HomePage</h3>
     </>
     
   )
