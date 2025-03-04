@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./HeaderComponent.css"
 import {Link} from "react-router-dom"
+import { UserContext } from '../contexts/user.context'
 
 function HeaderComponent() {
+    const {user} = useContext(UserContext)
   return (
     <header className="header">
-        <h1 className="title">Welcome</h1>
+        <h1 className="title">Welcome, {user}</h1>
         <nav>
             <ul className="link-list">
                 <li>
