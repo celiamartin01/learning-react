@@ -1,30 +1,11 @@
 import React from 'react'
 import HeaderComponent from '../components/HeaderComponent'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import PostCard from '../components/PostCard'
+import { BlogContext } from '../contexts/blog.context'
 
 function BlogPage() {
-
-  const [posts, setPosts] = useState([])
-
-  // Error state variable to handle errors easily
-  const [error, setError] = useState(false)
-
-  const getPosts = async () => {
-    try {
-      const response = await fetch("https://jsonplaceholder.typicode.com/posts")
-      const data = await response.json()
-
-      console.log(data)
-      setPosts(data)
-
-      // Dont forget to set error to false in case we are successful
-      setError(false)
-    }
-    catch (e) {
-      setError(true)
-    }
-  }
+  const {posts, error, getPosts} = useContext(BlogContext)
 
   useEffect(() => {
     getPosts()
