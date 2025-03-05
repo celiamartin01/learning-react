@@ -4,12 +4,16 @@ import { useContext } from 'react'
 import { UserContext } from '../contexts/user.context'
 
 function HomePage() {
-  const {user, setUser} = useContext(UserContext)
+  const {user, login, logout} = useContext(UserContext)
+
   return (
     <>
         <HeaderComponent/>
         <h3>HomePage</h3>
-        <p>Welcome, {user}</p>
+        <p>Welcome{user && <span>, {user.name}</span>}</p>
+
+        <button onClick = {login}>Login</button>
+        <button onClick = {logout}>Log out</button>
     </>
     
   )
