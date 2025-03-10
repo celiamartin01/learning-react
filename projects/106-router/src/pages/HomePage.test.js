@@ -3,7 +3,7 @@ import HomePage from "./HomePage"
 import { UserProviderWrapper } from "../contexts/user.context"
 import { MemoryRouter } from "react-router-dom"
 
-describe("HomePage", () => {
+describe("HomePage testing suit", () => {
     it("simple test", () => {
         // This is a stupid test just to check if the test enviroment works
         expect(1).toEqual(1)

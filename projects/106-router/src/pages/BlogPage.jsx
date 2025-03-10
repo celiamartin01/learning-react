@@ -33,7 +33,7 @@ function BlogPage() {
       <button onClick = {login}>Login</button>
       <button onClick = {logout}>Log out</button>
 
-      <h3>Blog page</h3>
+      <h3 data-testid="blogpage-title">Blog page</h3>
 
       {/* Conditional render to show error message or loading message in case our request 
       is taking some time */}
