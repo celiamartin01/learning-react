@@ -38,11 +38,11 @@ function BlogPage() {
       {/* Conditional render to show error message or loading message in case our request 
       is taking some time */}
       {error ? (
-        <p>Something went wrong...</p>
+        <p data-testid="error-msg">Something went wrong...</p>
       ) : postCards.length ?
         <ul>{postCards}</ul>
         :
-        <p>Loading...</p>
+        <p data-testid="loading-msg">Loading...</p>
       }
     </>
 
