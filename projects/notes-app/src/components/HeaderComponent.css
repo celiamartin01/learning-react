@@ -1,18 +1,22 @@
 .header {
-    background-color: #000022;
-    color: white;
+    background-color: #f3f0da;
+    color: rgb(53, 53, 53);
     padding: 30px;
     text-align: center;
+
     .title {
-        margin: 0;
+        font-weight: 900;
     }
 
     .nav-list {
         display: flex;
         justify-content: space-around;
+        
         .link {
-            color: white;
+            color: rgb(53, 53, 53);
             text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
         }
     }
 }

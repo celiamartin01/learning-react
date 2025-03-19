@@ -1,10 +1,12 @@
 import HeaderComponent from "../components/HeaderComponent"
+import './HomePage.css'
 
 function HomePage() {
     return (
         <>
             <HeaderComponent />
-            <div>HomePage</div>
+            <h2>Home page</h2>
+            <div className="text">provisional css!! wip</div>
         </>
     )
 }
