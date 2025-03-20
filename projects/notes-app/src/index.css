@@ -3,6 +3,7 @@
 * {
     box-sizing: border-box;
     font-family: "Syne", sans-serif;
+    
 }
 
 body {
@@ -10,7 +11,5 @@ body {
 }
 
 ul {
-    margin: 0;
-    padding: 0;
     list-style-type: none;
 }

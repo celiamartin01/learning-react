@@ -6,6 +6,5 @@ h2 {
 .notes-list {
     display: flex;
     flex-direction: column;
-    gap: 6px;
     align-items: center;
 }
