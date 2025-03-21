@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import HeaderComponent from "../components/HeaderComponent"
 import { NoteContext } from "../context/note.context"
 import NoteCard from "../components/NoteCard"
@@ -6,7 +6,12 @@ import './NotesPage.css'
 import CreateNote from "../components/CreateNote"
 
 function NotesPage() {
-  const { notes } = useContext(NoteContext)
+  const { notes, getNotes } = useContext(NoteContext)
+
+  useEffect (() => {
+    getNotes()  // We get all notes when the component is mounted
+  }, [])  // Don't forget the reaking empty array to use this only when mounted
+          // (i forgot this at first and keep getting infinite requests)
 
   const noteCards = notes.map((note) => {
     return (

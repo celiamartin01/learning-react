@@ -2,51 +2,53 @@ import { createContext, useState } from "react";
 
 const NoteContext = createContext();
 
+const API_URL = "https://ca229452138bc01a9b05.free.beeceptor.com/api/notes/"
+
 function NoteProviderWrapper(props) {
-    // This is just for testing purposes, delete later
-    const noteList = [
-        {
-            id: "1",
-            title: "Subrayar tema 3 arte clásico",
-            marked: false
-        },
-        {
-            id: "2",
-            title: "Apuntes tema 3 arte clásico",
-            marked: false
-        },
-        {
-            id: "3",
-            title: "Subrayar tema 4 iconografía",
-            marked: false
-        },
-        {
-            id: "4",
-            title: "Vídeo 37 react",
-            marked: false
+
+    const [notes, setNotes] = useState([])
+
+    const getNotes = async () => {
+        try {
+            const response = await fetch(API_URL)
+            const data = await response.json()
+            setNotes(data.reverse())    // We reverse the array to show the last notes first
+        } catch (e) {
+            console.log(e)
         }
-    ]
-
-    const [notes, setNotes] = useState(noteList)
-
-    // Creating a new array where we modify the indicated note and left the rest as they were
-    const updateNote = (updatedNote) => {
-        const updatedNotes = notes.map((note) => {
-            if (note.id !== updatedNote.id) return note
-            return updatedNote
-        })
-
-        setNotes(updatedNotes)
     }
 
-    // We just create a new array with the new note at the begginig and the rest of the notes
-    // We could just place the new note at the end changing the line to setNotes([...notes, newNote])
-    const addNote = (newNote) => {
-        setNotes([newNote, ...notes])
+    const addNote = async (newNote) => {
+        try {
+            await fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify(newNote)   // Note that we need to stringify the object
+            })
+
+            // We would'nt have to set the notes here if we were using a database,
+            // but since we're using a free API, we're updating here the notes state
+            // to save requests
+            setNotes([newNote, ...notes])
+        } catch (e) {
+            console.log(e)
+        }
     }
+
+    // WIP
+    // This doesn't work properly anymore! We would need to update the function to use the API
+    // Now the notes are being updated BUT NOT SAVED IN THE API so they will be lost when the page is refreshed
+       const updateNote = (updatedNote) => {
+           const updatedNotes = notes.map((note) => {
+               if (note.id !== updatedNote.id) return note
+               return updatedNote
+           })
+   
+           setNotes(updatedNotes)
+       }
+    
 
     return (
-        <NoteContext.Provider value={{ notes, setNotes, updateNote, addNote }}>
+        <NoteContext.Provider value={{ notes, getNotes, setNotes, updateNote, addNote }}>
             {props.children}
         </NoteContext.Provider>
     )
