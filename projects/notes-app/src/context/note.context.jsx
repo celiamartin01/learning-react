@@ -7,14 +7,19 @@ const API_URL = "https://ca229452138bc01a9b05.free.beeceptor.com/api/notes/"
 function NoteProviderWrapper(props) {
 
     const [notes, setNotes] = useState([])
+    const [hasError, setError] = useState(false)
+    const [hasLoaded, setLoaded] = useState(false)
 
     const getNotes = async () => {
         try {
             const response = await fetch(API_URL)
             const data = await response.json()
             setNotes(data.reverse())    // We reverse the array to show the last notes first
+            setError(false)
+            setLoaded(true)
         } catch (e) {
             console.log(e)
+            setError(true)
         }
     }
 
@@ -37,18 +42,18 @@ function NoteProviderWrapper(props) {
     // WIP
     // This doesn't work properly anymore! We would need to update the function to use the API
     // Now the notes are being updated BUT NOT SAVED IN THE API so they will be lost when the page is refreshed
-       const updateNote = (updatedNote) => {
-           const updatedNotes = notes.map((note) => {
-               if (note.id !== updatedNote.id) return note
-               return updatedNote
-           })
-   
-           setNotes(updatedNotes)
-       }
-    
+    const updateNote = (updatedNote) => {
+        const updatedNotes = notes.map((note) => {
+            if (note.id !== updatedNote.id) return note
+            return updatedNote
+        })
+
+        setNotes(updatedNotes)
+    }
+
 
     return (
-        <NoteContext.Provider value={{ notes, getNotes, setNotes, updateNote, addNote }}>
+        <NoteContext.Provider value={{ notes, hasError, hasLoaded, getNotes, setNotes, updateNote, addNote }}>
             {props.children}
         </NoteContext.Provider>
     )

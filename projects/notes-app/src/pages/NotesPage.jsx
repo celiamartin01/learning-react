@@ -6,7 +6,7 @@ import './NotesPage.css'
 import CreateNote from "../components/CreateNote"
 
 function NotesPage() {
-  const { notes, getNotes } = useContext(NoteContext)
+  const { notes, getNotes, hasError, hasLoaded } = useContext(NoteContext)
 
   useEffect (() => {
     getNotes()  // We get all notes when the component is mounted
@@ -29,7 +29,14 @@ function NotesPage() {
         <li>
           <CreateNote />
         </li>
-        {noteCards}
+        {hasError ? (
+          <p className="error-text">Error obtaining data</p>
+        ) : !hasLoaded ? (
+          <p>Loading...</p>
+        ) : (
+          noteCards
+        )}
+        
       </ul>
     </>
   )
